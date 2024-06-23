@@ -69,22 +69,6 @@ def plot_points_and_polygons(points, polygons):
     plt.tight_layout()
     plt.show()
 
-def polar_angle(p0, p1):
-    return math.atan2(p1[1] - p0[1], p1[0] - p0[0])
-
-def distance(p0, p1):
-    return (p1[0] - p0[0]) ** 2 + (p1[1] - p0[1]) ** 2
-
-def is_adjacent(p1, p2):
-    return distance(p1, p2) == 1 or distance(p1, p2) == 2
-
-def find_bottom_left_point(points):
-    return min(points, key=lambda p: (p[1], p[0]))
-
-def sort_points_counterclockwise(points, start_point):
-    sorted_points = sorted(points, key=lambda p: polar_angle(start_point, p))
-    return sorted_points
-
 def dfs(point, graph, path, visited, start_point, longest_path, global_visited):
     path.append(point)
     visited.add(point)
